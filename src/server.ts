@@ -4,6 +4,11 @@ import logger from './logger';
 const app = Express();
 app.use(logger);
 
+app.get('/user/:id', (req, res) => {
+  console.log(req.params.id);
+  res.status(200).send('OK');
+});
+
 app.get('/home/index', (req, res) => {
   res.status(200).send('OK');
 });
