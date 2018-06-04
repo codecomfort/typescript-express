@@ -1,13 +1,10 @@
 import * as Express from 'express';
 import logger from './logger';
+import userRouter from './userRouter';
 
 const app = Express();
 app.use(logger);
-
-app.get('/user/:id', (req, res) => {
-  console.log(req.params.id);
-  res.status(200).send('OK');
-});
+app.use('/user', userRouter);
 
 app.get('/home/index', (req, res) => {
   res.status(200).send('OK');
